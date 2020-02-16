@@ -14,4 +14,4 @@ jobs:
       - name: change mode
         run: chmod 777 temp_key
       - name: deploy
-        run: scp test.js -i temp_key ${{ secrets.USER }}@${{ secrets.HOST }}:/
+        run: scp -i temp_key test.js ${{ secrets.USER }}@${{ secrets.HOST }}:/
