@@ -5,8 +5,10 @@ jobs:
     name: build job
     runs-on: ubuntu-16.04
     steps:
+      - name: test echo
+        run: echo hello
       - name: Check out Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: add secret_key
         run: echo ${{ secrets.SECRET }} > temp_key
       - name: change mode
