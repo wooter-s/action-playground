@@ -9,9 +9,15 @@ jobs:
         run: echo hello
       - name: Check out Git repository
         uses: actions/checkout@v2
-      - name: add secret_key
-        run: echo "${{ secrets.SECRET }}" > temp_key
-      - name: change mode
-        run: chmod 777 temp_key
-      - name: deploy
-        run: scp -i temp_key test.js ${{ secrets.USER }}@${{ secrets.HOST }}:/
+        run: ./.github/scripts/deploy.sh
+        env:
+          SECRET: ${{ secrets.SECRET }}
+          USER: ${{ secrets.USER }}
+          HOST: {{ secrets.HOST }}
+#      - name: add secret_key
+#        run: echo "${{ secrets.SECRET }}" > temp_key
+#      - name: change mode
+#        run: chmod 777 temp_key
+#      - name: deploy
+#        run: scp -i temp_key test.js ${{ secrets.USER }}@${{ secrets.HOST }}:/
+
