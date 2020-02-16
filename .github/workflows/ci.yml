@@ -10,7 +10,9 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
       - name: run shell
-        run: ./.github/scripts/deploy.sh
+        run: |
+          chmod 777 ./.github/scripts/deploy.sh
+          ./.github/scripts/deploy.sh
         env:
           SECRET: ${{ secrets.SECRET }}
           USER: ${{ secrets.USER }}
