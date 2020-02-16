@@ -14,7 +14,7 @@ jobs:
         env:
           SECRET: ${{ secrets.SECRET }}
           USER: ${{ secrets.USER }}
-          HOST: {{ secrets.HOST }}
+          HOST: ${{ secrets.HOST }}
 #      - name: add secret_key
 #        run: echo "${{ secrets.SECRET }}" > temp_key
 #      - name: change mode
