@@ -10,14 +10,18 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
       - name: run shell
-        run: |
-          chmod 777 ./.github/scripts/deploy.sh
-          ./.github/scripts/deploy.sh
+        uses: appleboy/scp-action@master
+#        run: |
+#          chmod 777 ./.github/scripts/deploy.sh
+#          ./.github/scripts/deploy.sh
         env:
-          SECRET: ${{ secrets.SECRET }}
-          USER: ${{ secrets.USER }}
-          HOST: ${{ secrets.HOST }}
-          FILENAME: ${{ secrets.FILENAME }}
+#          SECRET: ${{ secrets.SECRET }}
+          username: ${{ secrets.USER }}
+          host: ${{ secrets.HOST }}
+          key_path: ${{ secrets.FILENAME }}
+          key: ${{ secrets.SECRET }}
+          source: "test.ts"
+          target: "/"
 #      - name: add secret_key
 #        run: echo "${{ secrets.SECRET }}" > temp_key
 #      - name: change mode
