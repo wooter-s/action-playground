@@ -9,6 +9,7 @@ jobs:
         run: echo hello
       - name: Check out Git repository
         uses: actions/checkout@v2
+      - name: run shell
         run: ./.github/scripts/deploy.sh
         env:
           SECRET: ${{ secrets.SECRET }}
