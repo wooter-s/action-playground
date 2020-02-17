@@ -14,7 +14,7 @@ jobs:
 #        run: |
 #          chmod 777 ./.github/scripts/deploy.sh
 #          ./.github/scripts/deploy.sh
-        env:
+        with:
 #          SECRET: ${{ secrets.SECRET }}
           username: ${{ secrets.USER }}
           host: ${{ secrets.HOST }}
